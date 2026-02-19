@@ -481,7 +481,7 @@
         <div class="about-info">
           <div class="info-row">
             <span class="info-label">Email</span>
-            <span class="info-value"><a href="mailto:christianrickycali@gmail.com">christianrickycali@gmail.com</a></span>
+            <span class="info-value"><a href="/cdn-cgi/l/email-protection#46252e342f35322f2728342f252d3f25272a2f06212b272f2a6825292b"><span class="__cf_email__" data-cfemail="88ebe0fae1fbfce1e9e6fae1ebe3f1ebe9e4e1c8efe5e9e1e4a6ebe7e5">[email&#160;protected]</span></a></span>
           </div>
           <div class="info-row">
             <span class="info-label">Location</span>
@@ -705,7 +705,7 @@
     <h2>Let's <em>Connect</em></h2>
     <p>I'm actively looking for new opportunities. Whether you have a role in mind or just want to chat about software, my inbox is open.</p>
 
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" action="https://formspree.io/f/xqeddarv" method="POST">
       <div class="form-row">
         <div class="form-group">
           <label>Name</label>
@@ -724,13 +724,15 @@
         <label>Message</label>
         <textarea rows="5" placeholder="Tell me more..." required></textarea>
       </div>
+      <input type="hidden" name="_subject" value="New message from your portfolio!" />
+      <input type="hidden" name="_next" value="https://christianrickygit.github.io" />
       <div class="form-submit">
         <button type="submit" class="btn btn-primary">Send Message →</button>
       </div>
     </form>
 
     <div class="social-links">
-      <a href="mailto:christianrickycali@gmail.com" class="social-link">
+      <a href="/cdn-cgi/l/email-protection#0d6e657f647e79646c637f646e66746e6c61644d6a606c6461236e6260" class="social-link">
         ✉ Email
       </a>
       <a href="https://linkedin.com/in/rickychristian" target="_blank" class="social-link">
@@ -744,7 +746,7 @@
     <p>© 2025 Ricky Christian · Built with care · Irvine, CA</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -779,13 +781,4 @@
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
-      });
-      navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
-        a.style.opacity = a.getAttribute('href') === '#' + current ? '1' : '';
-      });
-    });
-  </script>
-</body>
-</html>
+       
