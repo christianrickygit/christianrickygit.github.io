@@ -410,11 +410,59 @@
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── RESPONSIVE ─── */
+    /* ─── HAMBURGER ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10,22,40,0.98);
+      backdrop-filter: blur(16px);
+      z-index: 150;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
     @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .form-row { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .hamburger { display: flex; }
     }
 
     /* Scrollbar */
@@ -427,6 +475,9 @@
 
   <!-- NAV -->
   <nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="nav-logo">RC</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -435,6 +486,14 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#experience" onclick="closeMenu()">Experience</a>
+    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
@@ -481,7 +540,7 @@
         <div class="about-info">
           <div class="info-row">
             <span class="info-label">Email</span>
-            <span class="info-value"><a href="mailto:christianrickycali@gmail.com">christianrickycali@gmail.com</a></span>
+            <span class="info-value"><a href="/cdn-cgi/l/email-protection#dab9b2a8b3a9aeb3bbb4a8b3b9b1a3b9bbb6b39abdb7bbb3b6f4b9b5b7"><span class="__cf_email__" data-cfemail="33505b415a40475a525d415a50584a50525f5a73545e525a5f1d505c5e">[email&#160;protected]</span></a></span>
           </div>
           <div class="info-row">
             <span class="info-label">Location</span>
@@ -746,7 +805,7 @@
     <p>© 2025 Ricky Christian · Built with care · Irvine, CA</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -758,21 +817,20 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Form submit
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#4caf84';
-      btn.style.color = '#fff';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Send Message →';
-        btn.style.background = '';
-        btn.style.color = '';
-        btn.disabled = false;
-        e.target.reset();
-      }, 3000);
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
     }
 
     // Active nav highlight
@@ -781,4 +839,13 @@
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(s => {
-       
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+        a.style.opacity = a.getAttribute('href') === '#' + current ? '1' : '';
+      });
+    });
+  </script>
+</body>
+</html>
