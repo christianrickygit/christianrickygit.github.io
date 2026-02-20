@@ -608,7 +608,7 @@
   <section id="video">
     <div class="section-label" style="justify-content:center;">00 · Intro</div>
     <h2>Meet <em>Ricky</em></h2>
-    <p class="video-sub">A quick introduction — who I am, what I do</p>
+    <p class="video-sub">A quick introduction — who I am, what I do, and what I'm looking for.</p>
     <div class="video-container fade-in">
       <iframe src="https://drive.google.com/file/d/1fXbgYNkunm3nyLGMVDVqFrGMMB4poyVv/preview" allow="autoplay" allowfullscreen></iframe>
     </div>
@@ -951,4 +951,23 @@
 
     function closeMenu() {
       hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open'
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+        a.style.opacity = a.getAttribute('href') === '#' + current ? '1' : '';
+      });
+    });
+  </script>
+</body>
+</html>
