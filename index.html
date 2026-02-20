@@ -470,6 +470,70 @@
       .hamburger { display: flex; }
     }
 
+    /* ─── PHILOSOPHY ─── */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .phil-card {
+      padding: 2rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .phil-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(200,169,126,0.4);
+      transform: translateY(-3px);
+    }
+    .phil-icon {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+    .phil-card h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .phil-card p {
+      font-size: 0.88rem;
+      color: rgba(248,245,240,0.6);
+      line-height: 1.7;
+    }
+
+    /* ─── VIDEO ─── */
+    #video {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #video h2 { margin-bottom: 0.5rem; }
+    #video .video-sub {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .video-container iframe {
+      width: 100%;
+      height: 450px;
+      display: block;
+      border: none;
+    }
+
     /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
@@ -525,16 +589,28 @@
     <div class="hero-content">
       <div class="hero-eyebrow">Software Developer · Los Angeles Metropolitan Area, CA</div>
       <h1>Ricky <em>Christian</em></h1>
-      <p class="hero-subtitle">Full-Stack Developer · Java · Cloud · Enterprise Systems</p>
+      <p class="hero-subtitle">Full-Stack Developer · Java · Cloud · Enterprise Systems · Building Scalable Systems</p>
       <p class="hero-desc">
-        Results-driven software developer with 3+ years building enterprise-grade systems. 
-        Specializing in Java Spring Boot, cloud architecture, and scalable backend services 
-        that power real-world workflows.
+        I design and build enterprise-grade systems that solve real problems at scale — 
+        from automating insurance workflows for 50,000+ policyholders to architecting 
+        cloud-native platforms that deliver measurable business impact.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">View My Work</a>
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
       </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VIDEO -->
+  <section id="video">
+    <div class="section-label" style="justify-content:center;">00 · Intro</div>
+    <h2>Meet <em>Ricky</em></h2>
+    <p class="video-sub">A quick introduction — who I am, what I do</p>
+    <div class="video-container fade-in">
+      <iframe src="https://drive.google.com/file/d/1fXbgYNkunm3nyLGMVDVqFrGMMB4poyVv/preview" allow="autoplay" allowfullscreen></iframe>
     </div>
   </section>
 
@@ -547,23 +623,18 @@
     <div class="about-grid">
       <div class="about-text fade-in">
         <p>
-          I'm a full-stack software developer with a Master's degree in Computer Science 
-          from California State University, Sacramento. I specialize in designing and building 
-          enterprise systems with Java, Spring Boot, and cloud-native architectures.
+          I'm a software engineer who thrives at the intersection of clean architecture and real-world impact. With a Master's in Computer Science and 3+ years of production experience, I build systems that are reliable, scalable, and meaningful to the people who use them.
         </p>
         <p>
-          My professional experience spans crop insurance claims platforms, pension management 
-          systems, and production monitoring infrastructure — with a strong track record of 
-          improving performance, reducing manual effort, and achieving federal compliance.
+          My work spans mission-critical insurance platforms, pension management systems, and cloud-native infrastructure — consistently delivering measurable results: faster systems, fewer errors, and teams that spend less time fighting fires.
         </p>
         <p>
-          I enjoy designing systems that scale gracefully and code that's maintainable for 
-          the long run. I'm currently open to new opportunities in software engineering.
+          I care deeply about writing code that lasts — systems designed to grow, not just to ship. I'm currently open to new software engineering opportunities where I can make a real difference.
         </p>
         <div class="about-info">
           <div class="info-row">
             <span class="info-label">Email</span>
-            <span class="info-value"><a href="mailto:christianrickycali@gmail.com">christianrickycali@gmail.com</a></span>
+            <span class="info-value"><a href="/cdn-cgi/l/email-protection#b9dad1cbd0cacdd0d8d7cbd0dad2c0dad8d5d0f9ded4d8d0d597dad6d4" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="87e4eff5eef4f3eee6e9f5eee4ecfee4e6ebeec7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></a></span>
           </div>
           <div class="info-row">
             <span class="info-label">Location</span>
@@ -655,9 +726,39 @@
 
   <div class="divider"></div>
 
+  <!-- PHILOSOPHY -->
+  <section id="philosophy" style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">02 · Philosophy</div>
+    <h2>How I <em>Engineer</em></h2>
+    <div class="philosophy-grid">
+      <div class="phil-card fade-in">
+        <div class="phil-icon">⬡</div>
+        <h3>Clean Architecture</h3>
+        <p>I design systems with clear boundaries and separation of concerns — code that new engineers can understand, extend, and trust from day one.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-icon">⬡</div>
+        <h3>Observability First</h3>
+        <p>Production systems need to be understood, not just deployed. I build in monitoring, alerting, and logging from the start — not as an afterthought.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-icon">⬡</div>
+        <h3>Reliability Over Shortcuts</h3>
+        <p>Fast delivery matters, but not at the cost of stability. I prioritize solutions that hold up under pressure, edge cases, and real-world load.</p>
+      </div>
+      <div class="phil-card fade-in">
+        <div class="phil-icon">⬡</div>
+        <h3>Maintainable by Default</h3>
+        <p>The best code is code that doesn't need explaining. I write with the next engineer in mind — clear, documented, and built to last.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="section-label">02 · Experience</div>
+    <div class="section-label">03 · Experience</div>
     <h2>Work <em>History</em></h2>
     <div class="timeline">
 
@@ -682,13 +783,13 @@
             <span class="tech-badge">Docker</span>
           </div>
           <ul class="exp-bullets">
-            <li>Developed and maintained Java Spring Boot microservices powering crop insurance claims workflows, automating loss calculations and payment processing for 50,000+ policyholders annually.</li>
-            <li>Designed RESTful APIs with the agent portal delivering real-time policy and claim data, reducing agent support requests by 40%.</li>
+            <li>Designed and maintain scalable Java Spring Boot microservices that automate crop insurance claims workflows — including loss calculations, coverage validations, and payment processing — serving 50,000+ policyholders annually.</li>
+            <li>Architected RESTful APIs connecting agents to real-time policy and claims data, reducing support requests by 40% and significantly improving the customer experience.</li>
             <li>Created RMA-compliant interactive PDF forms in Adobe Designer with embedded JavaScript and Java bindings, automating data submission to backend systems.</li>
-            <li>Engineered complex SQL queries, stored procedures, and indexing strategies reducing claim reporting execution time from minutes to seconds.</li>
-            <li>Built automated data validation pipelines ensuring 100% federal audit compliance with USDA RMA regulations.</li>
-            <li>Developed Splunk dashboards and Datadog alerts reducing mean time to resolution (MTTR) by 60%.</li>
-            <li>Refactored legacy claims modules into modular Spring Boot services, cutting deployment times by 50%.</li>
+            <li>Transformed claim reporting performance through advanced SQL optimization — cutting execution time from minutes to seconds during peak seasons.</li>
+            <li>Built automated validation pipelines that enforced USDA RMA regulatory standards across all policy and claims data, achieving 100% federal audit compliance.</li>
+            <li>Built a comprehensive observability layer with Splunk dashboards and Datadog alerting, cutting mean time to resolution (MTTR) by 60% across production incidents.</li>
+            <li>Led the modernization of legacy claims modules into clean, modular Spring Boot services — reducing deployment times by 50% and setting a foundation for long-term scalability.</li>
           </ul>
         </div>
       </div>
@@ -748,7 +849,7 @@
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="section-label">03 · Projects</div>
+    <div class="section-label">04 · Projects</div>
     <h2>Featured <em>Work</em></h2>
     <div class="projects-grid">
 
@@ -783,9 +884,9 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-label" style="justify-content:center;">04 · Contact</div>
+    <div class="section-label" style="justify-content:center;">05 · Contact</div>
     <h2>Let's <em>Connect</em></h2>
-    <p>I'm actively looking for new opportunities. Whether you have a role in mind or just want to chat about software, my inbox is open.</p>
+    <p>I'm actively exploring new engineering opportunities. If you're building something meaningful and need someone who cares about both the craft and the outcome — let's talk.</p>
 
     <form class="contact-form" action="https://formspree.io/f/xqeddarv" method="POST">
       <div class="form-row">
@@ -814,7 +915,7 @@
     </form>
 
     <div class="social-links">
-      <a href="mailto:christianrickycali@gmail.com" class="social-link">✉ Email</a>
+      <a href="/cdn-cgi/l/email-protection#5033382239232439313e2239333b2933313c3910373d31393c7e333f3d" class="social-link">✉ Email</a>
       <a href="https://linkedin.com/in/rickychristian" target="_blank" class="social-link">
         ↗ LinkedIn
       </a>
@@ -826,7 +927,7 @@
     <p>© 2025 Ricky Christian · Built with care · Los Angeles Metropolitan Area, CA</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -850,23 +951,4 @@
 
     function closeMenu() {
       hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    // Active nav highlight
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
-      });
-      navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
-        a.style.opacity = a.getAttribute('href') === '#' + current ? '1' : '';
-      });
-    });
-  </script>
-</body>
-</html>
+      mobileMenu.classList.remove('open'
