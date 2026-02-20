@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="cf-email-protection" content="off" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ricky Christian | Software Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -72,6 +73,33 @@
       padding: 0 5%;
       position: relative;
       overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-video-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      aspect-ratio: 16/9;
+    }
+    .hero-video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-video-wrap { aspect-ratio: 16/9; }
     }
     .hero-bg {
       position: absolute; inset: 0;
@@ -586,6 +614,7 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-lines"></div>
+    <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-eyebrow">Software Developer · Los Angeles Metropolitan Area, CA</div>
       <h1>Ricky <em>Christian</em></h1>
@@ -600,17 +629,9 @@
         <a href="#contact" class="btn btn-outline">Get In Touch</a>
       </div>
     </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- VIDEO -->
-  <section id="video">
-    <div class="section-label" style="justify-content:center;">00 · Intro</div>
-    <h2>Meet <em>Ricky</em></h2>
-    <p class="video-sub">A quick introduction — who I am, what I do, and what I'm looking for.</p>
-    <div class="video-container fade-in">
+    <div class="hero-video-wrap fade-in">
       <iframe src="https://drive.google.com/file/d/1fXbgYNkunm3nyLGMVDVqFrGMMB4poyVv/preview" allow="autoplay" allowfullscreen></iframe>
+    </div>
     </div>
   </section>
 
@@ -634,7 +655,7 @@
         <div class="about-info">
           <div class="info-row">
             <span class="info-label">Email</span>
-            <span class="info-value"><a href="/cdn-cgi/l/email-protection#b9dad1cbd0cacdd0d8d7cbd0dad2c0dad8d5d0f9ded4d8d0d597dad6d4" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="87e4eff5eef4f3eee6e9f5eee4ecfee4e6ebeec7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></a></span>
+            <span class="info-value"><a href="mailto:christianrickycali@gmail.com">christianrickycali@gmail.com</a></span>
           </div>
           <div class="info-row">
             <span class="info-label">Location</span>
@@ -915,7 +936,7 @@
     </form>
 
     <div class="social-links">
-      <a href="/cdn-cgi/l/email-protection#5033382239232439313e2239333b2933313c3910373d31393c7e333f3d" class="social-link">✉ Email</a>
+      <a href="mailto:christianrickycali@gmail.com" class="social-link">✉ Email</a>
       <a href="https://linkedin.com/in/rickychristian" target="_blank" class="social-link">
         ↗ LinkedIn
       </a>
